@@ -102,9 +102,9 @@ def train(model="sch", epochs=80, device=th.device("cpu"), dataset=''):
             loss = loss_fn(res, batch.label)
             mae = MAE_fn(res, batch.label)
 
-            optimizer.zero_grad()
-            mae.backward()
-            optimizer.step()
+            # optimizer.zero_grad()
+            # mae.backward()
+            # optimizer.step()
 
             val_mae += mae.detach().item()
             val_loss += loss.detach().item()
