@@ -1,5 +1,5 @@
 # Correction for the data in the publication : 
-@article{gao2020accurate,
+- @article{gao2020accurate,
   title={Accurate predictions of aqueous solubility of drug molecules via the multilevel graph convolutional network (MGCN) and SchNet architectures},
   author={Gao, Peng and Zhang, Jie and Sun, Yuzhu and Yu, Jianguo},
   journal={Physical Chemistry Chemical Physics},
