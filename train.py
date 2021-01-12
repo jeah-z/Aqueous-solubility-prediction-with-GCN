@@ -20,7 +20,7 @@ def dataset_split(file):
     train_set.to_csv("delaney_train.csv", index=False)
 
 
-def train(model="sch", epochs=80, device=th.device("cpu"), dataset=''):
+def train(model="sch", epochs=80, device=th.device("cpu"), dataset='', save=''):
     print("start")
     train_dir = "./"
     train_file = dataset+"_train.csv"
@@ -67,6 +67,8 @@ def train(model="sch", epochs=80, device=th.device("cpu"), dataset=''):
     loss_fn = nn.MSELoss()
     MAE_fn = nn.L1Loss()
     optimizer = th.optim.Adam(model.parameters(), lr=0.0001)
+    scheduler = th.optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer, mode='min', factor=0.9, patience=10, threshold=0.0000001, threshold_mode='rel', cooldown=0, min_lr=0.000001, eps=1e-08, verbose=False)
 
     for epoch in range(epochs):
 
@@ -89,6 +91,7 @@ def train(model="sch", epochs=80, device=th.device("cpu"), dataset=''):
             w_loss += loss.detach().item()
         w_mae /= idx + 1
         w_loss /= idx + 1
+        scheduler.step(w_mae)
 
         print("Epoch {:2d}, loss: {:.7f}, mae: {:.7f}".format(
             epoch, w_loss, w_mae))
@@ -116,7 +119,7 @@ def train(model="sch", epochs=80, device=th.device("cpu"), dataset=''):
             ))
 
         if epoch % 200 == 0:
-            th.save(model.state_dict(), './'+dataset+"/model_"+str(epoch))
+            th.save(model.state_dict(), save+"/model_"+str(epoch))
 
 
 if __name__ == "__main__":
@@ -127,8 +130,10 @@ if __name__ == "__main__":
                         default="sch")
     parser.add_argument("--epochs", help="number of epochs", default=10000)
     parser.add_argument("--dataset", help="dataset to train", default="")
+    parser.add_argument(
+        "--save", help="folder path to save results", default="")
     device = th.device('cuda:0' if th.cuda.is_available() else 'cpu')
     args = parser.parse_args()
     assert args.model in ["sch", "mgcn"]
     # dataset_split("delaney.csv")
-    train(args.model, int(args.epochs), device, args.dataset)
+    train(args.model, int(args.epochs), device, args.dataset, args.save)

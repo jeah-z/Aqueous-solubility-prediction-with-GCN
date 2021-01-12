@@ -1,6 +1,32 @@
+# Correction for the data in the publication : 
+@article{gao2020accurate,
+  title={Accurate predictions of aqueous solubility of drug molecules via the multilevel graph convolutional network (MGCN) and SchNet architectures},
+  author={Gao, Peng and Zhang, Jie and Sun, Yuzhu and Yu, Jianguo},
+  journal={Physical Chemistry Chemical Physics},
+  volume={22},
+  number={41},
+  pages={23766--23772},
+  year={2020},
+  publisher={Royal Society of Chemistry}
+}
+
+
+
+
+
 # Aqueous-solubility-prediction-with-GCN
 
+A code to predict aqueous solubility.
 
+This code was based on https://github.com/tencent-alchemy/Alchemy. If this script is of any help to you, please cite them.
+
+K.T. Schütt. P.-J. Kindermans, H. E. Sauceda, S. Chmiela, A. Tkatchenko, K.-R. Müller. SchNet: A continuous-filter convolutional neural network for modeling quantum interactions. Advances in Neural Information Processing Systems 30, pp. 992-1002 (2017) link
+- @article{chen2019alchemy,
+  title={Alchemy: A Quantum Chemistry Dataset for Benchmarking AI Models},
+  author={Chen, Guangyong and Chen, Pengfei and Hsieh, Chang-Yu and Lee, Chee-Kong and Liao, Benben and Liao, Renjie and Liu, Weiwen and Qiu, Jiezhong and Sun, Qiming and Tang, Jie and Zemel, Richard and Zhang, Shengyu},
+  journal={arXiv preprint arXiv:1906.09427},
+  year={2019}
+}
 
 ## Dataset preprocessing
 Dataset can be processed with the following command:
@@ -18,7 +44,7 @@ mkdir delaney
 ```
 The model can be trained with the following command:
 ```
-python train.py --model sch --epochs 20000 --dataset delaney  
+python train.py --model sch --epochs 20000 --dataset Dataset/delaney  --save YOUR_DIR_TO_SAVE_RESULTS
 ```
 
 ## Eval and cross validation
