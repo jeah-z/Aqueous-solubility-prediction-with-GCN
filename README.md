@@ -10,7 +10,7 @@
   publisher={Royal Sossciety of Chemistry}
 }
  
-For the training & test errors presented in the publication, we need to claim that, for Delaney and Huuskonen data sets, the validation errors were 0.27 and 0.23, respectively; and these results can be reproduced via the provided code and original data sets. It is also alternative for users to incorporate the validation data in their training, thus the corresponding errors can be further reduced to 0.05 and 0.06, respectively. sss
+For the training & test errors presented in the publication, we need to claim that, for Delaney and Huuskonen data sets, the validation errors were 0.27 and 0.23, respectively; and these results can be reproduced via the provided code and original data sets. It is also alternative for users to incorporate the validation data in their training, thus the corresponding errors can be further reduced to 0.05 and 0.06, respectively. 
 
 # Aqueous-solubility-prediction-with-GCN
 
