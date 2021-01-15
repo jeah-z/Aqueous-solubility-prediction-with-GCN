@@ -1,4 +1,4 @@
-# Correction for the data in the publication : 
+# Demonstration for the training & test errors in the publication :
 - @article{gao2020accurate,
   title={Accurate predictions of aqueous solubility of drug molecules via the multilevel graph convolutional network (MGCN) and SchNet architectures},
   author={Gao, Peng and Zhang, Jie and Sun, Yuzhu and Yu, Jianguo},
@@ -9,10 +9,10 @@
   year={2020},
   publisher={Royal Society of Chemistry}
 }
-
-
-
-
+ 
+For the training & test errors presented in the publication, we need to claim that, for Delaney and Huuskonen data sets, the validation errors were 0.27 and 0.23, respectively; and these results can be reproduced via the provided code and original data sets. It is also alternative for users to incorporate the validation data in their training, thus the corresponding errors can be further reduced to 0.05 and 0.06, respectively. 
+sss
+sss
 
 # Aqueous-solubility-prediction-with-GCN
 
